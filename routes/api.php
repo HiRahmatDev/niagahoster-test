@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/prices', 'PricesController@all');
+Route::get('/prices/{id}','PricesController@show');
+Route::post('/prices','PricesController@store');
+Route::put('/prices/{id}','PricesController@update');
+Route::delete('/prices/{id}','PricesController@delete');

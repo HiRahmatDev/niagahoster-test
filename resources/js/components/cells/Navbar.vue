@@ -1,8 +1,37 @@
 <template>
   <div>
-    <header>
+    <header class="d-none d-lg-flex align-items-center">
       <div class="container">
-
+        <div class="row justify-content-between align-items-center">
+          <div class="col-auto" :class="header ? 'd-flex' : 'd-none'">
+            <div class="d-flex align-items-start" >
+              <img class="blue-label" :src="blueLabel" alt="label">
+              <p class="roboto ml-2 mt-1">Gratis Ebook 9 Cara Cerdas Menggunakan Domain <span @click="closeHeader">[ x ]</span></p>
+            </div>
+          </div>
+          <div class="col-auto d-flex align-items-center ml-auto">
+            <div class="d-flex align-items-center roboto member">
+              <router-link to="/">
+                <div class="phone">
+                  <img :src="phone" alt="phone">
+                  <span class="ml-1">0274-5305505</span>
+                </div>
+              </router-link>
+              <router-link to="/">
+                <div class="messages ml-3">
+                  <img :src="messagesBlack" alt="phone">
+                  <span class="ml-1">Live Chat</span>
+                </div>
+              </router-link>
+              <router-link to="/">
+                <div class="user ml-3">
+                  <img :src="user" alt="phone">
+                  <span class="ml-1">Member Area</span>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
     <nav class="navbar py-3 navbar-expand-lg navbar-light">
@@ -55,17 +84,39 @@
 
 <script>
 import logoNiaga from '../../../assets/images/niagahoster-logo-1024x246.png';
+import blueLabel from '../../../assets/svg/bluelabel.svg';
+import user from '../../../assets/svg/user-circle.svg';
+import phone from '../../../assets/svg/phone.svg';
+import messagesBlack from '../../../assets/svg/messages-black.svg';
 
 export default {
   data() {
     return {
-      logoNiaga
+      logoNiaga,
+      blueLabel,
+      user,
+      phone,
+      messagesBlack,
+      header: true
+    }
+  },
+  methods: {
+    closeHeader() {
+      this.header = false
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  header {
+    height: 40px;
+    p {
+      span {
+        cursor: pointer;
+      }
+    }
+  }
   nav {
     border-top: 1px solid #dfdfdf;
     border-bottom: 1px solid #dfdfdf;
@@ -84,6 +135,24 @@ export default {
           }
         }
       }
+    }
+  }
+  .blue-label {
+    width: 28px;
+  }
+  .phone, .messages {
+    img {
+      height: 18px;
+    }
+  }
+  .user {
+    img {
+      height: 20px;
+    }
+  }
+  .member {
+    a {
+      text-decoration: none;
     }
   }
 </style>
