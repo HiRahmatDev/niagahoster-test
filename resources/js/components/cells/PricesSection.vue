@@ -8,9 +8,12 @@
     </div>
     <div class="prices row">
       <div class="price col-md-6 col-lg-3 px-md-0"
-        v-for="(price, i) in 4" :key="i"
+        v-for="(data, i) in dataPrice" :key="i"
       >
-        <TablePrice />
+        <TablePrice
+          :data="data"
+          :bestSeller="data.bestSeller"
+        />
       </div>
     </div>
   </div>
@@ -20,6 +23,104 @@
 import TablePrice from '../cells/TablePrice';
 
 export default {
+  data() {
+    return {
+      dataPrice: [
+        {
+          id: 1,
+          packageTitle: 'Bayi',
+          realPrice: 19900,
+          promoPrice: 14900,
+          userRegistered: 938,
+          resourcesPower: '0.5X',
+          diskSpace: '500 MB',
+          bandwith: 'Unlimited',
+          POP3Email: null,
+          databases: 'Unlimited',
+          addonDomains: null,
+          backupNrestore: null,
+          backup: 'Instant',
+          freeDomain: null,
+          SSL: 'Unlimited SSL',
+          privateNameServer: null,
+          priorityService: null,
+          stars: null,
+          mailProtection: null,
+          bestSeller: false,
+          dicount: null
+        },
+        {
+          id: 2,
+          packageTitle: 'Pelajar',
+          realPrice: 46900,
+          promoPrice: 23450,
+          userRegistered: 4168,
+          resourcesPower: '1X',
+          diskSpace: 'Unlimited',
+          bandwith: 'Unlimited',
+          POP3Email: 'Unlimited',
+          databases: 'Unlimited',
+          addonDomains: 10,
+          backupNrestore: null,
+          backup: 'Instant',
+          freeDomain: 'Domain Gratis',
+          SSL: 'Unlimited SSL',
+          privateNameServer: null,
+          priorityService: null,
+          stars: null,
+          mailProtection: null,
+          bestSeller: false,
+          discount: null
+        },
+        {
+          id: 3,
+          packageTitle: 'Personal',
+          realPrice: 58900,
+          promoPrice: 38900,
+          userRegistered: 10017,
+          resourcesPower: '2X',
+          diskSpace: 'Unlimited',
+          bandwith: 'Unlimited',
+          POP3Email: 'Unlimited',
+          databases: 'Unlimited',
+          addonDomains: 10,
+          backupNrestore: null,
+          backup: 'Instant',
+          freeDomain: 'Domain Gratis',
+          SSL: 'Unlimited SSL',
+          privateNameServer: 'Private',
+          priorityService: null,
+          stars: null,
+          mailProtection: 'SpamAssasin',
+          bestSeller: true,
+          discount: null
+        },
+        {
+          id: 4,
+          packageTitle: 'Bisnis',
+          realPrice: 109900,
+          promoPrice: 65900,
+          userRegistered: 3552,
+          resourcesPower: '3X',
+          diskSpace: 'Unlimited',
+          bandwith: 'Unlimited',
+          POP3Email: 'Unlimited',
+          databases: 'Unlimited',
+          addonDomains: 'Unlimited',
+          backupNrestore: 'Magic Auto',
+          backup: null,
+          freeDomain: 'Domain Gratis',
+          SSL: 'Unlimited SSL',
+          privateNameServer: 'Private',
+          priorityService: 'Prioritas',
+          stars: 5,
+          mailProtection: 'SpamExpert Pro',
+          bestSeller: false,
+          discount: 'Diskon 40%'
+        }
+      ]
+    }
+  },
   components: {
     TablePrice
   }

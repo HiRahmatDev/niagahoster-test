@@ -16,7 +16,7 @@
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-6">
-          <h5 class="heading mb-4">HUBUNGI KAMI</h5>
+          <h5 class="heading mb-4">Layanan</h5>
           <ul class="mb-md-4 mb-5">
             <li><router-link to="/">Domain</router-link></li>
             <li><router-link to="/">Shared Hosting</router-link></li>
@@ -200,7 +200,7 @@ export default {
       border: none;
       outline: none;
       right: 5px;
-      top: 5px;
+      top: 5.5px;
       padding: 10px;
     }
   }

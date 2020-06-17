@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import ZendGuard from '../../../assets/svg/icon PHP Hosting_zendguard.svg';
-import Composer from '../../../assets/svg/icon PHP Hosting_composer.svg';
-import ionCube from '../../../assets/svg/icon PHP Hosting_ioncube.svg';
+import ZendGuard from '../../../assets/svg/zend-guard.svg';
+import Composer from '../../../assets/svg/composer.svg';
+import ionCube from '../../../assets/svg/ionCube.svg';
 
 export default {
   data() {
@@ -46,5 +46,8 @@ export default {
 .img-wrap {
   width: 200px;
   height: 200px;
+  img {
+    width: 100%;
+  }
 }
 </style>
