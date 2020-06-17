@@ -127,8 +127,9 @@ export default {
   },
   methods: {
     async getPrices() {
+      this.pricesfromApi = false;
       const res = await axios.get(process.env.MIX_URL + '/prices');
-      this.pricesfromApi = res.data
+      this.pricesfromApi = res.data;
     }
   },
   mounted() {
