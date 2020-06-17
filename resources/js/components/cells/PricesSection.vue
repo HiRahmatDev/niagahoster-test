@@ -8,7 +8,7 @@
     </div>
     <div class="prices row">
       <div class="price col-md-6 col-lg-3 px-md-0"
-        v-for="(data, i) in dataPrice" :key="i"
+        v-for="(data, i) in pricesfromApi || dataPrice" :key="i"
       >
         <TablePrice
           :data="data"
@@ -25,10 +25,11 @@ import TablePrice from '../cells/TablePrice';
 export default {
   data() {
     return {
+      pricesfromApi: [],
       dataPrice: [
         {
           id: 1,
-          packageTitle: 'Bayi',
+          packageTitle: 'Ini',
           realPrice: 19900,
           promoPrice: 14900,
           userRegistered: 938,
@@ -51,7 +52,7 @@ export default {
         },
         {
           id: 2,
-          packageTitle: 'Pelajar',
+          packageTitle: 'Data',
           realPrice: 46900,
           promoPrice: 23450,
           userRegistered: 4168,
@@ -74,7 +75,7 @@ export default {
         },
         {
           id: 3,
-          packageTitle: 'Personal',
+          packageTitle: 'Fake',
           realPrice: 58900,
           promoPrice: 38900,
           userRegistered: 10017,
@@ -97,7 +98,7 @@ export default {
         },
         {
           id: 4,
-          packageTitle: 'Bisnis',
+          packageTitle: 'Api',
           realPrice: 109900,
           promoPrice: 65900,
           userRegistered: 3552,
@@ -123,6 +124,15 @@ export default {
   },
   components: {
     TablePrice
+  },
+  methods: {
+    async getPrices() {
+      const res = await axios.get(process.env.MIX_URL + '/prices');
+      this.pricesfromApi = res.data
+    }
+  },
+  mounted() {
+    this.getPrices();
   }
 }
 </script>
